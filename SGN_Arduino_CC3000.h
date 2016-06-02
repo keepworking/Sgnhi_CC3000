@@ -42,10 +42,6 @@
 
 class dotori {
 public:
-	int argType;
-	int chk = 42;
-	char* senCode;
-	uint32_t value;
 	dotori(char *sencode);
 	void printcode();
 	void set(int val);
@@ -56,6 +52,10 @@ public:
 	//
 	//vvoid setvalue(void *val);
 private:
+	int argType;
+	int chk = 42;
+	char* senCode;
+	uint32_t value;
 };
 
 
