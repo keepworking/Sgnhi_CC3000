@@ -1,4 +1,6 @@
-
+/*
+ * CC3000.h class 구현
+ */
 #include "SGN_Arduino_CC3000.h"
 
 dotori::dotori(char *sencode){
@@ -41,7 +43,6 @@ void Sgnhi_CC3000::setRest(unsigned long rest){
 
 
 int Sgnhi_CC3000::send(dotori mdotori, ...){//iot_up 소스코드 수정해야함 -> 수정완료.
-	
 	//return 1;
 	//send value code 아래쪽 부터.
 	unsigned long now = millis();
@@ -87,9 +88,6 @@ int Sgnhi_CC3000::send(dotori mdotori, ...){//iot_up 소스코드 수정해야�
 	sgnhi_packet += "User-Agent: sgnhi\r\n";
 	sgnhi_packet += "Connection: close\r\n\r\n";
 
-
-
-
 	if (client.connected()) {
 		DEBUG_PRINT("connected");
 		int packetLength = sgnhi_packet.length();
@@ -116,7 +114,6 @@ int Sgnhi_CC3000::send(dotori mdotori, ...){//iot_up 소스코드 수정해야�
 		}
 		client.stop();
 		sTime = now;
-
 	}
 	else {
 		//Serial.println(client.status());
