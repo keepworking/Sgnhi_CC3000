@@ -6,6 +6,7 @@
 #include <ccspi.h>
 #include <string.h>
 #include <utility/debug.h>
+#include <typeinfo>
 #if ARDUINO < 100
   #include <WProgram.h>
 #else
@@ -40,14 +41,16 @@
 
 //
 
+template <typename T>
 class dotori {
 public:
 	dotori(char *sencode);
 	void printcode();
-	void set(int val);
-	void set(float val);
-	void set(long val);
-	void set(double val);
+	void set(T val);
+	//void set(int val);
+	//void set(float val);
+	//void set(long val);
+	/void set(double val);
 	//int request(void *val,int type);
 	//
 	//vvoid setvalue(void *val);
