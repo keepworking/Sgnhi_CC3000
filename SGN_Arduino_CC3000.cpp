@@ -12,28 +12,51 @@ void dotori::printcode(){
 }
 
 //입력 변수형별 전송 데이터 타입 정리.
-void dotori::set(int val){
-	void * vo = &val;
-	value = *(uint32_t*)vo;
-	argType = atInt;
-}
+// void dotori::set(int val){
+// 	void * vo = &val;
+// 	value = *(uint32_t*)vo;
+// 	argType = atInt;
+// }
 
-void dotori::set(float val){
-	void * vo = &val;
-	value = *(uint32_t*)vo;
-	argType = atFloat;
-}
+// void dotori::set(float val){
+// 	void * vo = &val;
+// 	value = *(uint32_t*)vo;
+// 	argType = atFloat;
+// }
 
-void dotori::set(long val){
-	void * vo = &val;
-	value = *(uint32_t*)vo;
-	argType = atLong;
-}
+// void dotori::set(long val){
+// 	void * vo = &val;
+// 	value = *(uint32_t*)vo;
+// 	argType = atLong;
+// }
 
-void dotori::set(double val){
-	void * vo = &val;
+// void dotori::set(double val){
+// 	void * vo = &val;
+// 	value = *(uint32_t*)vo;
+// 	argType = atDouble;
+// }
+
+template<typename T>
+void dotori<T>::set(T val){
+	void * vo = &val
 	value = *(uint32_t*)vo;
-	argType = atDouble;
+	switch(typeid(val).name()) {
+	case 'i':
+		argType = atInt;
+		break;
+	case 'f':
+		argType = atFloat;
+		break;
+	case 'l':
+		argType = atLong;
+		break;
+	case 'd':
+		argType = atDouble;
+		break;
+	default:
+		argType = NULL;
+		return 1;
+	}
 }
 
 
