@@ -50,7 +50,7 @@ public:
 	//void set(int val);
 	//void set(float val);
 	//void set(long val);
-	/void set(double val);
+	//void set(double val);
 	//int request(void *val,int type);
 	//
 	//vvoid setvalue(void *val);
